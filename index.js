@@ -478,13 +478,7 @@ Deps.prototype.parseDeps = function (file, src, cb) {
     try {
         var deps = detective(src, {
             parse: {
-                plugins: [
-                    'objectRestSpread',
-                    'decorators',
-                    'classProperties',
-                    'classProperties',
-                    'functionBind'
-                ]
+                plugins: this.options.parserPlugins || []
             }
         });
     }
