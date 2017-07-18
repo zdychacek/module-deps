@@ -1,14 +1,13 @@
 # module-deps
 
-walk the dependency graph to generate json output that can be fed into
-[browser-pack](https://github.com/substack/browser-pack)
+*This is a fork of [`module-deps`](https://www.npmjs.com/package/module-deps) which uses [Babylon](https://github.com/babel/babylon) parser instead of [`acorn`](https://www.npmjs.com/package/acorn).*
 
-[![build status](https://secure.travis-ci.org/substack/module-deps.png)](http://travis-ci.org/substack/module-deps)
+Walks the dependency graph to generate json output that can be fed into.
 
 # example
 
 ``` js
-var mdeps = require('module-deps');
+var mdeps = require('@zdychacek/module-deps');
 var JSONStream = require('JSONStream');
 
 var md = mdeps();
@@ -49,7 +48,7 @@ usage: module-deps [files]
 # methods
 
 ``` js
-var mdeps = require('module-deps')
+var mdeps = require('@zdychacek/module-deps')
 ```
 
 ## var d = mdeps(opts={})
@@ -101,7 +100,7 @@ from disk.
         file, // the path to the file that is loaded
         id,   // the id that is used to reference this file
         pkg,  // the package that this file belongs to fallback
-        fallback, // async fallback handler to be called if the cache doesn't hold the given file 
+        fallback, // async fallback handler to be called if the cache doesn't hold the given file
         cb    // callback handler that receives the cache data
     ) {
         if (hasError()) {
@@ -143,6 +142,8 @@ from disk.
 in `process.env.NODE_PATH`
 
 * `opts.ignoreMissing` - ignore files that failed to resolve
+
+* `opts.parserPlugins` - pass a list of Babylon's plugins for underlying `node-detective` module
 
 # input objects
 
@@ -275,13 +276,13 @@ OPTIONS are:
 With [npm](http://npmjs.org), to get the module do:
 
 ```
-npm install module-deps
+npm install @zdychacek/module-deps
 ```
 
 and to get the `module-deps` command do:
 
 ```
-npm install -g module-deps
+npm install -g @zdychacek/module-deps
 ```
 
 # license
